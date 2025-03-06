@@ -1,5 +1,7 @@
 package ca.cal.tp2.repository;
 
-public class BookRepository extends RepositoryBase {
+import ca.cal.tp2.model.Book;
+
+public class BookRepository extends RepositoryBase<Book> {
 
 }

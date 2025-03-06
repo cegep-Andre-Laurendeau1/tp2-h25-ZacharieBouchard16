@@ -1,16 +1,14 @@
 package ca.cal.tp2.repository;
 
-import ca.cal.tp2.model.Document;
 
-
-public abstract class RepositoryBase implements Repository {
+public abstract class RepositoryBase<T> implements Repository {
     @Override
     public void save() {
 
     }
 
     @Override
-    public Document get(long id) {
+    public T get(long id) {
         return null;
     }
 }
