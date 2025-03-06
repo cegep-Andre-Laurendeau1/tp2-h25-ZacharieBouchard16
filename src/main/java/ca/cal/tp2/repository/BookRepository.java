@@ -4,4 +4,7 @@ import ca.cal.tp2.model.Book;
 
 public class BookRepository extends RepositoryBase<Book> {
 
+    public BookRepository() {
+        super(Book.class);
+    }
 }
