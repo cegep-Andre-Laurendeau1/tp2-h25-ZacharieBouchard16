@@ -1,12 +1,21 @@
 package ca.cal.tp2.model;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor(force = true)
+@Entity
 public class Borrow {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private final LocalDate lendingDate;
-    private final List<BorrowLineItem> documents;
+    @OneToMany(mappedBy = "borrow")
+    private List<BorrowLineItem> documents;
 }
