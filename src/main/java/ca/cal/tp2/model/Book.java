@@ -1,11 +1,13 @@
 package ca.cal.tp2.model;
 
+import jakarta.persistence.Entity;
 import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
+@Entity
 public class Book extends Document {
     private final String author;
     private final String publisher;
