@@ -1,8 +1,10 @@
 package ca.cal.tp2.repository;
 
+import ca.cal.tp2.model.Document;
+
 import java.util.List;
 
-public abstract class DocumentRepository<T> extends RepositoryBase<T>{
+public abstract class DocumentRepository<T extends Document> extends RepositoryBase<T>{
     public DocumentRepository(Class<T> entityClass) {
         super(entityClass);
     }

@@ -20,6 +20,7 @@ public class BookRepository extends DocumentRepository<Book> {
         Query query = em.createQuery("SELECT b FROM Book b WHERE b.releaseDate BETWEEN :yearStart AND :yearEnd");
         query.setParameter("yearStart", LocalDate.of(year, 1, 1));
         query.setParameter("yearEnd", LocalDate.of(year, 12, 31));
+        em.close();
         return query.getResultList();
     }
 }
