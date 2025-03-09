@@ -5,14 +5,17 @@ import ca.cal.tp2.repository.CDRepository;
 import ca.cal.tp2.repository.DVDRepository;
 import ca.cal.tp2.service.LibrarianService;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, SQLException {
+        TcpServer.createTcpServer();
         LibrarianService librarianService = new LibrarianService(new BookRepository(), new CDRepository(), new DVDRepository());
 
         librarianService.addBook("The Trial", LocalDate.now(), 1, "Franz Kafka", "Whatever", "11111111", 3, 125);
-        System.out.println(librarianService.getBook(1));
+        System.out.println(librarianService.getBook(1L));
+        System.out.println(librarianService.getBooksByYear(2025));
 
         Thread.currentThread().join();
     }
