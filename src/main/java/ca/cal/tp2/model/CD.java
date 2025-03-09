@@ -1,8 +1,14 @@
 package ca.cal.tp2.model;
 
-import lombok.Data;
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor(force = true)
+@Entity
 public class CD extends Document{
     private final String artist;
     private final int length;
