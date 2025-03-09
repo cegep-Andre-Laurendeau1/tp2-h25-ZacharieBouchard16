@@ -3,9 +3,10 @@ package ca.cal.tp2.model;
 import jakarta.persistence.Entity;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Entity
 public class Book extends Document {
@@ -14,6 +15,15 @@ public class Book extends Document {
     private final String isbn;
     private final int borrowTime;
     private final int pageAmount;
+
+    public Book(Long id, String name, LocalDate releaseDate, int amountTotal, String author, String publisher, String isbn, int borrowTime, int pages) {
+        super(id, name, releaseDate, amountTotal);
+        this.author = author;
+        this.publisher = publisher;
+        this.isbn = isbn;
+        this.borrowTime = borrowTime;
+        this.pageAmount = pages;
+    }
 
     @Override
     public String toString() {

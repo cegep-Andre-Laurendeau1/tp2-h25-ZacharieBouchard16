@@ -9,7 +9,6 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 public class Borrower extends User {
-    private Long id;
     private List<Fine> fines;
     private List<Borrow> lendings;
 }
