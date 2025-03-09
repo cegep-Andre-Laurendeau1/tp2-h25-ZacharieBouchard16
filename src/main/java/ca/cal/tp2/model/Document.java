@@ -16,7 +16,7 @@ public abstract class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "document_id")
-    private long id;
+    private Long id;
     private final String name;
     private final LocalDate releaseDate;
     private final int amountTotal;
