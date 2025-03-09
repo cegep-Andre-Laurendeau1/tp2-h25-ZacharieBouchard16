@@ -10,8 +10,8 @@ import java.time.LocalDate;
 public class LibrarianService {
     private Repository<Book> bookRepository;
 
-    public void addBook(Long id, String name, LocalDate releaseDate, int amountTotal, String author, String publisher, String isbn, int borrowTime, int pages) {
-        bookRepository.save(new Book(id, name, releaseDate, amountTotal, author, publisher, isbn, borrowTime, pages));
+    public void addBook(String name, LocalDate releaseDate, int amountTotal, String author, String publisher, String isbn, int borrowTime, int pages) {
+        bookRepository.save(new Book(null, name, releaseDate, amountTotal, author, publisher, isbn, borrowTime, pages));
     }
 
     public Book getBook(long id) {
