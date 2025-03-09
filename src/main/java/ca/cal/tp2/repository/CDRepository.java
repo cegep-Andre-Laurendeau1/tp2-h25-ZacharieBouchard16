@@ -4,7 +4,7 @@ import ca.cal.tp2.model.CD;
 
 
 public class CDRepository extends RepositoryBase<CD> {
-    public CDRepository(Class<CD> entityClass) {
-        super(entityClass);
+    public CDRepository() {
+        super(CD.class);
     }
 }
