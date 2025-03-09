@@ -17,6 +17,9 @@ public class Main {
         System.out.println(librarianService.getBook(1L));
         System.out.println(librarianService.getBooksByYear(2025));
 
+        librarianService.addCD("Toxicity", LocalDate.now(), 2, "System of a Down", 3, 2, "Heavy Metal");
+        System.out.println(librarianService.getCDsByArtist("System of a Down"));
+
         Thread.currentThread().join();
     }
 }

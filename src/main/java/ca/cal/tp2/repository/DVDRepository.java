@@ -20,7 +20,15 @@ public class DVDRepository extends DocumentRepository<DVD> {
         Query query = em.createQuery("SELECT dvd FROM DVD dvd WHERE dvd.releaseDate BETWEEN :yearStart AND :yearEnd");
         query.setParameter("yearStart", LocalDate.of(year, 1, 1));
         query.setParameter("yearEnd", LocalDate.of(year, 12, 31));
-        em.close();
+        return query.getResultList();
+    }
+
+    @Override
+    public List<DVD> getByCreator(String name) {
+        EntityManager em = emf.createEntityManager();
+
+        Query query = em.createQuery("SELECT dvd FROM DVD dvd WHERE dvd.director = :director");
+        query.setParameter("director", name);
         return query.getResultList();
     }
 }

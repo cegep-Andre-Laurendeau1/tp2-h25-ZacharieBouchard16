@@ -21,7 +21,15 @@ public class CDRepository extends DocumentRepository<CD> {
         Query query = em.createQuery("SELECT cd FROM CD cd WHERE cd.releaseDate BETWEEN :yearStart AND :yearEnd");
         query.setParameter("yearStart", LocalDate.of(year, 1, 1));
         query.setParameter("yearEnd", LocalDate.of(year, 12, 31));
-        em.close();
+        return query.getResultList();
+    }
+
+    @Override
+    public List<CD> getByCreator(String name) {
+        EntityManager em = emf.createEntityManager();
+
+        Query query = em.createQuery("SELECT cd FROM CD cd WHERE cd.artist = :artist");
+        query.setParameter("artist", name);
         return query.getResultList();
     }
 }

@@ -10,4 +10,5 @@ public abstract class DocumentRepository<T extends Document> extends RepositoryB
     }
 
     public abstract List<T> getByYear(int year);
+    public abstract List<T> getByCreator(String name);
 }

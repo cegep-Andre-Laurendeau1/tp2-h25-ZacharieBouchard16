@@ -26,4 +26,12 @@ public class LibrarianService {
     public List<Book> getBooksByYear(int year) {
         return bookRepository.getByYear(year);
     }
+
+    public void addCD(String name, LocalDate releaseDate, int amountTotal, String artist, int length, int borrowTime, String genre) {
+        cdRepository.save(new CD(null, name, releaseDate, amountTotal, artist, length, borrowTime, genre));
+    }
+
+    public List<CD> getCDsByArtist(String artist) {
+        return cdRepository.getByCreator(artist);
+    }
 }
