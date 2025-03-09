@@ -16,6 +16,6 @@ public class Borrow {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private final LocalDate lendingDate;
-    @OneToMany(mappedBy = "borrow")
+    @OneToMany(mappedBy = "borrowListing")
     private List<BorrowLineItem> documents;
 }
