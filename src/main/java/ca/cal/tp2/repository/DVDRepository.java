@@ -1,6 +1,5 @@
 package ca.cal.tp2.repository;
 
-import ca.cal.tp2.model.CD;
 import ca.cal.tp2.model.DVD;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -29,6 +28,15 @@ public class DVDRepository extends DocumentRepository<DVD> {
 
         Query query = em.createQuery("SELECT dvd FROM DVD dvd WHERE dvd.director = :director");
         query.setParameter("director", name);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<DVD> getByName(String name) {
+        EntityManager em = emf.createEntityManager();
+
+        Query query = em.createQuery("SELECT dvd FROM DVD dvd WHERE dvd.name LIKE :name");
+        query.setParameter("name", "%" + name + "%");
         return query.getResultList();
     }
 }

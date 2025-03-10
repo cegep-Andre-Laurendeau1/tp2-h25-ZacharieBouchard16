@@ -34,4 +34,12 @@ public class LibrarianService {
     public List<CD> getCDsByArtist(String artist) {
         return cdRepository.getByCreator(artist);
     }
+
+    public void addDVD(String name, LocalDate releaseDate, int amountTotal, String director, int length, int borrowTime, String rating) {
+        dvdRepository.save(new DVD(null, name, releaseDate, amountTotal, director, length, borrowTime, rating));
+    }
+
+    public List<DVD> getDVDsByName(String name) {
+        return dvdRepository.getByName(name);
+    }
 }

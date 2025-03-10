@@ -1,6 +1,7 @@
 package ca.cal.tp2.repository;
 
 import ca.cal.tp2.model.Book;
+import ca.cal.tp2.model.DVD;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
@@ -29,6 +30,15 @@ public class BookRepository extends DocumentRepository<Book> {
 
         Query query = em.createQuery("SELECT b FROM Book b WHERE b.author = :author");
         query.setParameter("author", name);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Book> getByName(String name) {
+        EntityManager em = emf.createEntityManager();
+
+        Query query = em.createQuery("SELECT b FROM Book b WHERE b.name LIKE :name");
+        query.setParameter("name", "%" + name + "%");
         return query.getResultList();
     }
 }

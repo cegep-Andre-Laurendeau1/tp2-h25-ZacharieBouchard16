@@ -20,6 +20,10 @@ public class Main {
         librarianService.addCD("Toxicity", LocalDate.now(), 2, "System of a Down", 3, 2, "Heavy Metal");
         System.out.println(librarianService.getCDsByArtist("System of a Down"));
 
+        librarianService.addDVD("Star Wars: Revenge of the Sith", LocalDate.now(), 1, "George Lucas", 320, 2, "PG13");
+        System.out.println(librarianService.getDVDsByName("Wars"));
+
+
         Thread.currentThread().join();
     }
 }
