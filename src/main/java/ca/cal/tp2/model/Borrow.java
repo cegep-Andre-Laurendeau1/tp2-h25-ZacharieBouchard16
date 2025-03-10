@@ -8,7 +8,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor(force = true)
 @Entity
 public class Borrow {
@@ -18,4 +17,7 @@ public class Borrow {
     private final LocalDate lendingDate;
     @OneToMany(mappedBy = "borrowListing")
     private List<BorrowLineItem> documents;
+    @ManyToOne
+    @JoinColumn
+    private Borrower borrower;
 }

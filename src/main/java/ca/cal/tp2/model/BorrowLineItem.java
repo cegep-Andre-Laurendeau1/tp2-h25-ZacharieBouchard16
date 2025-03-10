@@ -1,9 +1,6 @@
 package ca.cal.tp2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -21,4 +18,5 @@ public class BorrowLineItem {
     private Borrow borrowListing;
     private LocalDate returnDate;
     private final LocalDate dueDate;
+    private Long documentId;
 }
