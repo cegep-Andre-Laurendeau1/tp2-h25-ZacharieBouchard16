@@ -27,16 +27,40 @@ public class LibrarianService {
         return bookRepository.getByYear(year);
     }
 
+    public List<Book> getBooksByAuthor(String author) {
+        return bookRepository.getByCreator(author);
+    }
+
+    public List<Book> getBooksByName(String name) {
+        return bookRepository.getByName(name);
+    }
+
     public void addCD(String name, LocalDate releaseDate, int amountTotal, String artist, int length, int borrowTime, String genre) {
         cdRepository.save(new CD(null, name, releaseDate, amountTotal, artist, length, borrowTime, genre));
+    }
+
+    public List<CD> getCDsByYear(int year) {
+        return cdRepository.getByYear(year);
     }
 
     public List<CD> getCDsByArtist(String artist) {
         return cdRepository.getByCreator(artist);
     }
 
+    public List<CD> getCDsByName(String name) {
+        return cdRepository.getByName(name);
+    }
+
     public void addDVD(String name, LocalDate releaseDate, int amountTotal, String director, int length, int borrowTime, String rating) {
         dvdRepository.save(new DVD(null, name, releaseDate, amountTotal, director, length, borrowTime, rating));
+    }
+
+    public List<DVD> getDVDsByYear(int year) {
+        return dvdRepository.getByYear(year);
+    }
+
+    public List<DVD> getDVDsByDirector(String director) {
+        return dvdRepository.getByCreator(director);
     }
 
     public List<DVD> getDVDsByName(String name) {
