@@ -26,6 +26,11 @@ public class Book extends Document {
     }
 
     @Override
+    public int getBorrowTime() {
+        return borrowTime;
+    }
+
+    @Override
     public String toString() {
         return super.toString() + "Book{" +
                 "isbn='" + isbn + '\'' +

@@ -8,10 +8,10 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor(force = true)
-@AllArgsConstructor
 @Entity
 public class BorrowLineItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @ManyToOne
     @JoinColumn
@@ -19,4 +19,11 @@ public class BorrowLineItem {
     private LocalDate returnDate;
     private final LocalDate dueDate;
     private Long documentId;
+
+    public BorrowLineItem(Document document) {
+        documentId = document.getId();
+        dueDate = LocalDate.now().plusWeeks(document.getBorrowTime());
+    }
+
+
 }

@@ -19,5 +19,15 @@ public abstract class Document {
     private Long id;
     private final String name;
     private final LocalDate releaseDate;
-    private final int amountTotal;
+    private int amountTotal;
+
+    public boolean isAvailable() {
+        return amountTotal > 0;
+    }
+
+    public void borrowDocument() {
+        this.amountTotal--;
+    }
+
+    public abstract int getBorrowTime();
 }

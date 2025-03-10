@@ -1,9 +1,7 @@
 package ca.cal.tp2;
 
-import ca.cal.tp2.repository.BookRepository;
+import ca.cal.tp2.exceptions.DocumentUnavailableException;
 import ca.cal.tp2.repository.BorrowerRepository;
-import ca.cal.tp2.repository.CDRepository;
-import ca.cal.tp2.repository.DVDRepository;
 import ca.cal.tp2.service.BorrowerService;
 import ca.cal.tp2.service.LibrarianService;
 
@@ -13,8 +11,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) throws InterruptedException, SQLException {
         TcpServer.createTcpServer();
-        LibrarianService librarianService = new LibrarianService(new BookRepository(), new CDRepository(), new DVDRepository());
-        BorrowerService borrowerService = new BorrowerService(new BorrowerRepository());
+        LibrarianService librarianService = new LibrarianService();
+        BorrowerService borrowerService = new BorrowerService();
 
         librarianService.addBook("The Trial", LocalDate.now(), 1, "Franz Kafka", "Whatever", "11111111", 3, 125);
         System.out.println(librarianService.getBook(1L));
@@ -28,6 +26,15 @@ public class Main {
 
         borrowerService.registerBorrower("Zacharie Bouchard", "test1@gmail.com", "123456", "111-111-1111");
         System.out.println(borrowerService.getBorrower(1L));
+
+
+
+        try {
+            borrowerService.borrow(borrowerService.getBorrower(1L), 1L);
+            borrowerService.borrow(borrowerService.getBorrower(1L), 1L);
+        } catch (DocumentUnavailableException e) {
+            e.printStackTrace();
+        }
 
         Thread.currentThread().join();
     }
