@@ -1,7 +1,6 @@
 package ca.cal.tp2.repository;
 
 import ca.cal.tp2.model.Book;
-import ca.cal.tp2.model.DVD;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 

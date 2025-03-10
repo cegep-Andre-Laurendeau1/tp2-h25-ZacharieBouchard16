@@ -1,7 +1,6 @@
 package ca.cal.tp2;
 
 import ca.cal.tp2.exceptions.DocumentUnavailableException;
-import ca.cal.tp2.repository.BorrowerRepository;
 import ca.cal.tp2.service.BorrowerService;
 import ca.cal.tp2.service.LibrarianService;
 
